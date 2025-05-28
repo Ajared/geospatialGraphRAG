@@ -190,4 +190,3 @@ Reasoning: Infer spatial relationships (e.g., containment, proximity) using GeoS
 - Data Complexity: Geospatial data (e.g., large shapefiles) may require preprocessing. Use GDAL (open-source) to convert to GeoJSON/RDF.
 - Performance: Spatial queries on large graphs can be slow. Optimize with Virtuoso’s spatial indexing.
 - Model Integration: Language models may struggle with spatial data. Preprocess spatial results into text (e.g., "near coordinates X, Y") for the model.
-- Would you like to dive deeper into GeoSPARQL queries, visualization, or any specific geospatial aspect?
