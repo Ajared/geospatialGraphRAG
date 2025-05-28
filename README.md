@@ -163,28 +163,28 @@ Implementation:
 - Geospatial Addition: Publish GeoSPARQL-compliant endpoints for spatial queries.
 - Standards: LDP, RDF, SPARQL, GeoSPARQL.
 - Graph RAG Generation:
-- Generate answers incorporating spatial context (e.g., "Rover X explored region Y at coordinates Z").
-- Revised Graph RAG Workflow with Geospatial
+  - Generate answers incorporating spatial context (e.g., "Rover X explored region Y at coordinates Z").
+  - Revised Graph RAG Workflow with Geospatial
 - Data Ingestion:
-- Store raw and geospatial data (e.g., GeoJSON) in MinIO.
-- Version with Git and DVC.
-- Annotate in Markdown with JSON-LD, including spatial metadata.
+  - Store raw and geospatial data (e.g., GeoJSON) in MinIO.
+  - Version with Git and DVC.
+  - Annotate in Markdown with JSON-LD, including spatial metadata.
 Graph Construction:
-- Convert JSON-LD to RDF with RDFLib, including GeoSPARQL annotations.
-- Load into Virtuoso with geospatial extensions.
-- Define ontology with GeoSPARQL in Virtuoso.
-- Assign persistent URIs and validate with SHACL.
+  - Convert JSON-LD to RDF with RDFLib, including GeoSPARQL annotations.
+  - Load into Virtuoso with geospatial extensions.
+  - Define ontology with GeoSPARQL in Virtuoso.
+  - Assign persistent URIs and validate with SHACL.
 Retrieval:
-- Query via Virtuoso’s SPARQL/GeoSPARQL endpoint (e.g., spatial joins, distance calculations).
-- Use RDF2Vec with spatial features for similarity retrieval.
+  - Query via Virtuoso’s SPARQL/GeoSPARQL endpoint (e.g., spatial joins, distance calculations).
+  - Use RDF2Vec with spatial features for similarity retrieval.
 - Generation:
-- Feed geospatial subgraphs into a Hugging Face model with spatial context.
+  - Feed geospatial subgraphs into a Hugging Face model with spatial context.
 Publication:
-- Publish via Virtuoso’s endpoint and Solid, with GeoSPARQL support.
+  - Publish via Virtuoso’s endpoint and Solid, with GeoSPARQL support.
 Geospatial Benefits
-Spatial Queries: Enable complex queries like "find all features within a polygon."
-Visualization: Pair with OpenLayers for interactive maps.
-Reasoning: Infer spatial relationships (e.g., containment, proximity) using GeoSPARQL.
+  Spatial Queries: Enable complex queries like "find all features within a polygon."
+  Visualization: Pair with OpenLayers for interactive maps.
+  Reasoning: Infer spatial relationships (e.g., containment, proximity) using GeoSPARQL.
 
 #### Challenges and Mitigations
 - Data Complexity: Geospatial data (e.g., large shapefiles) may require preprocessing. Use GDAL (open-source) to convert to GeoJSON/RDF.
