@@ -1,7 +1,7 @@
 # geospatialGraphRAG
 geospatial Graph RAG system
 
-Integrating geospatial data into the Graph RAG system enhances its capability to handle location-based queries and relationships, which is particularly valuable for applications involving maps, geographic entities, or spatial reasoning (e.g., "find all missions near Mars" or "what rovers explored a specific region?"). OpenLink Software’s Virtuoso Universal Server already supports geospatial extensions, making it a natural fit for this addition. 
+Integrating geospatial data into the Graph RAG system enhances its capability to handle location-based queries and relationships, which is particularly valuable for applications involving maps, geographic entities, or spatial reasoning (e.g., "find all stores near Abuja" or "which drivers serviced a specific region?"). OpenLink Software’s Virtuoso Universal Server already supports geospatial extensions, making it a natural fit for this addition. 
 
 ## Revised Layer-by-Layer Solution with Geospatial Integration
 ### Layer 1: Remote Storage
