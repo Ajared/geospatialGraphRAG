@@ -176,7 +176,8 @@ Implementation:
 - Standards: LDP, RDF, SPARQL, GeoSPARQL.
 - Graph RAG Generation:
   - Generate answers incorporating spatial context (e.g., "Rover X explored region Y at coordinates Z").
-  - Revised Graph RAG Workflow with Geospatial
+
+Graph RAG Workflow with Geospatial
 - Data Ingestion:
   - Store raw and geospatial data (e.g., GeoJSON) in MinIO.
   - Version with Git and DVC.
