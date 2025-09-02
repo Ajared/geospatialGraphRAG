@@ -7,7 +7,9 @@ Integrating geospatial data into the Graph RAG system enhances its capability to
 ### Layer 1: Remote Storage
 Description: "Often called a 'storage grid' or 'cloud storage', with Amazon S3 being a canonical example."
 
-Design Decision: Geospatial data (e.g., GeoJSON files, shapefiles) will be stored alongside other raw data. MinIO remains suitable, as it can handle diverse file formats, including geospatial datasets.
+Design Decision: 
+Geospatial data (e.g., GeoJSON files, shapefiles) will be stored alongside other raw data. 
+MinIO remains suitable, as it can handle diverse file formats, including geospatial datasets.
 
 Tool Choice: MinIO
 Why MinIO?
@@ -24,7 +26,9 @@ Standards: None directly.
 ### Layer 2: Versioning
 Description: "How can one or more people-machines manage changes to a stored document?"
 
-Design Decision: Versioning applies to geospatial datasets as well. Git + DVC remains effective, with no need for OpenLink-specific tools.
+Design Decision: 
+Versioning applies to geospatial datasets as well. 
+Git + DVC remains effective, with no need for OpenLink-specific tools.
 Tool Choice: Git + DVC (Data Version Control)
 Why?
 DVC can version large geospatial files (e.g., GeoJSON) stored in MinIO, ensuring reproducibility.
@@ -39,7 +43,8 @@ Standards: None directly.
 ### Layer 3: Markdown
 Description: "Providing an accepted standard for a format which is both human and machine-readable."
 
-Design Decision: Markdown can include references to geospatial data (e.g., links to GeoJSON files). Pandoc remains the tool of choice.
+Design Decision: 
+Markdown can include references to geospatial data (e.g., links to GeoJSON files). Pandoc remains the tool of choice.
 Tool Choice: Pandoc
 Why Pandoc?
 Supports Markdown with embedded links to external files (e.g., GeoJSON).
@@ -54,7 +59,9 @@ Standards: Markdown.
 ### Layer 4: Semantic Markup
 Description: "Ability to describe the 'links' and metadata within the content, represented in markdown format."
 
-Design Decision: Geospatial data requires semantic markup with spatial properties (e.g., coordinates, geometries). JSON-LD can encode GeoJSON-like structures, and Virtuoso will handle the spatial RDF conversion.
+Design Decision: 
+Geospatial data requires semantic markup with spatial properties (e.g., coordinates, geometries). 
+JSON-LD can encode GeoJSON-like structures, and Virtuoso will handle the spatial RDF conversion.
 Tool Choice: JSON-LD + OpenLink Data Explorer (via Virtuoso)
 Why JSON-LD?
 Supports geospatial properties using standards like GeoSPARQL (e.g., geo:asWKT for Well-Known Text).
@@ -72,7 +79,8 @@ Standards: JSON-LD, RDF, GeoSPARQL.
 ### Layer 5: Shared Editing
 Description: "Collaborative editing of the content within a shared format, often via 'append-only' log approaches."
 
-Design Decision: Geospatial edits (e.g., updating a region boundary) need to be tracked. Apache Kafka and Git remain suitable.
+Design Decision: 
+Geospatial edits (e.g., updating a region boundary) need to be tracked. Apache Kafka and Git remain suitable.
 Tool Choice: Apache Kafka + Git
 Why Apache Kafka?
 Logs geospatial changes (e.g., new GeoJSON features) in an append-only manner.
@@ -89,7 +97,9 @@ Standards: None directly.
 ### Layer 6: Shared Vocabulary
 Description: "Harmonizing the semantics with popular controlled vocabularies, e.g., DCMI, Schema.org, etc."
 
-Design Decision: The ontology must include geospatial concepts (e.g., geo:Point, geo:Feature). Virtuoso’s ontology support can incorporate GeoSPARQL.
+Design Decision: 
+The ontology must include geospatial concepts (e.g., geo:Point, geo:Feature). 
+Virtuoso’s ontology support can incorporate GeoSPARQL.
 Tool Choice: Virtuoso (Ontology Support) + Protégé (optional)
 Why Virtuoso?
 Supports OWL, SKOS, and GeoSPARQL for defining spatial vocabularies.
@@ -149,7 +159,9 @@ Feed spatial data into a language model (e.g., Hugging Face) with context (e.g.,
 ### Layer 9: Publication
 Description: "W3C standards grew out of HTTP-ish work; hence Solid, LDP, etc., tend to focus here."
 
-Design Decision: Publish the geospatial graph with dereferenceable URIs. Virtuoso and Solid remain the tools, with geospatial data exposed.
+Design Decision: 
+Publish the geospatial graph with dereferenceable URIs. 
+Virtuoso and Solid remain the tools, with geospatial data exposed.
 Tool Choice: Virtuoso (SPARQL Endpoint) + Solid Server (Community Edition)
 Why Virtuoso?
 SPARQL endpoint supports GeoSPARQL, enabling spatial data publication.
@@ -187,6 +199,7 @@ Geospatial Benefits
   Reasoning: Infer spatial relationships (e.g., containment, proximity) using GeoSPARQL.
 
 #### Challenges and Mitigations
+- Greenfield: First Graph + AI project going to prod. Solution is upskilling, peer feedback.
 - Data Complexity: Geospatial data (e.g., large shapefiles) may require preprocessing. Use GDAL (open-source) to convert to GeoJSON/RDF.
 - Performance: Spatial queries on large graphs can be slow. Optimize with Virtuoso’s spatial indexing.
 - Model Integration: Language models may struggle with spatial data. Preprocess spatial results into text (e.g., "near coordinates X, Y") for the model.
