@@ -22,11 +22,16 @@ Standards: Markdown
 
 ## Layer 4: Semantic Markup
 "Describe links and metadata within the content."
+
 Tool: JSON-LD + OpenLink Data Explorer
+
 Purpose: Add semantic meaning to spatial properties
+
 Implementation: Embed GeoJSON-like structures with GeoSPARQL vocabulary (geo:asWKT, geo:Feature), convert with RDFLib, load into Virtuoso
+
 Standards: JSON-LD, RDF, GeoSPARQL
-Example:
+
+### Example:
 json{
   "@type": "geo:Feature",
   "geometry": {"type": "Point", "coordinates": [-87.65, 41.84]}
